@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Expense: Hashable{
+    let title: String
+    let totalAmount: Double
+    let numberOfPeople: Int
+    let splitAmount: Double
+}

@@ -8,8 +8,27 @@
 import SwiftUI
 
 struct TotalSpentView: View {
+    @AppStorage("totalExpenses") private var totalExpenses: Double = 0.0
+    @State private var newOwe : Double = 0.0
+    @State private var total : Double = 0.0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                Text("Overall You spent")
+                    .padding()
+                    .font(.system(size: 28))
+                
+                Text("LKR \(String(format: "%.2f", totalExpenses))")
+        
+                Button("Reset") {
+                    totalExpenses = 0.0
+                }.padding()
+                    .tint(.red)
+                    .buttonStyle(.bordered)
+            }
+            .navigationTitle("Expenses")
+        }
     }
 }
 
